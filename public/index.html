@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Query Interface</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">Log Query Interface</h1>
+
+            <div id="login" class="box">
+                <h2 class="subtitle">Login</h2>
+                <div class="field">
+                    <label class="label">Username</label>
+                    <div class="control">
+                        <input class="input" type="text" id="username" placeholder="Username">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Password</label>
+                    <div class="control">
+                        <input class="input" type="password" id="password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="control">
+                    <button class="button is-primary" onclick="login()">Login</button>
+                </div>
+            </div>
+
+            <div id="query-interface" class="box" style="display: none;">
+                <h2 class="subtitle">Query Logs</h2>
+                <div class="field">
+                    <label class="label">Level</label>
+                    <div class="control">
+                        <input class="input" type="text" id="level" placeholder="info, error, success">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Log String (Regex)</label>
+                    <div class="control">
+                        <input class="input" type="text" id="log_string" placeholder="Search log message">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Start Timestamp</label>
+                    <div class="control">
+                        <input class="input" type="datetime-local" id="start_timestamp">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">End Timestamp</label>
+                    <div class="control">
+                        <input class="input" type="datetime-local" id="end_timestamp">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Source</label>
+                    <div class="control">
+                        <input class="input" type="text" id="source" placeholder="log1.log, log2.log">
+                    </div>
+                </div>
+                <div class="control">
+                    <button class="button is-primary" onclick="queryLogs()">Query Logs</button>
+                </div>
+            </div>
+
+            <div class="box">
+                <h2 class="subtitle">Results</h2>
+                <pre id="results"></pre>
+            </div>
+        </div>
+    </section>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
